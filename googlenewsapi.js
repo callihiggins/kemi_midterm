@@ -1,12 +1,13 @@
 // JavaScript Document
 
-var app = {
+var googleApp = {
 	gnewsApiData : [],
 	
 	gnewsApiLink: 'https://newsapi.org/v2/everything/',
 
 	initialize: function() {
-		app.getgnewsApiData();
+		console.log('google news');
+		googleApp.getgnewsApiData();
 	},
 
 	getgnewsApiData: function() {
@@ -30,8 +31,9 @@ var app = {
 			},
 			success: function(data){
 				console.log("Got the data");
-				app.gnewsApiData = data.items;
-				app.makeHTML();
+				googleApp.gnewsApiData = data.articles;
+				googleApp.makeHTML();
+				debugger;
 				
 			}
 		});
@@ -39,18 +41,18 @@ var app = {
 			//Clear out the container
 	makeHTML: function() {
 		var theHTML = '';
-		for (var i = 0; i < app.getgnewsApiData.length; i++){
+		for (var i = 0; i < googleApp.gnewsApiData.length; i++){
 			theHTML += "<div class='text-article-box'>";
-			theHTML += "<headline>" + app.gnewsApiData[i].articles.title + "</headline>";
-			theHTML += "<summary>" + app.gnewsApiData[i].articles.description + "</summary>";
-			theHTML += "<author>"  + app.gnewsApiData[i].articles.source.author + "</headline>";
-			theHTML += "<source>" + app.gnewsApiData[i].articles.source.name + "</source>";
-			theHTML += "<time>" + app.gnewsApiData[i].articles.publishedAt + "</time>";
-			theHTML += "<url>" + app.gnewsApiData[i].articles.url + "</url>";
+			theHTML += "<headline>" + googleApp.gnewsApiData[i].title + "</headline>";
+			theHTML += "<summary>" + googleApp.gnewsApiData[i].description + "</summary>";
+			theHTML += "<author>"  + googleApp.gnewsApiData[i].source.author + "</headline>";
+			theHTML += "<source>" + googleApp.gnewsApiData[i].source.name + "</source>";
+			theHTML += "<time>" + googleApp.gnewsApiData[i].publishedAt + "</time>";
+			theHTML += "<url>" + googleApp.gnewsApiData[i].url + "</url>";
 	
 			theHTML += "</div>";
 		}
 		
-		$('.article-news-container').html(theHTML)	;
+		$('.article-news-container').html(theHTML);
 	},
 };

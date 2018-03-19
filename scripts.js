@@ -4,6 +4,7 @@ var app = {
 	youTubeLink: 'https://youtube.com/embed/',
 
 	initialize: function() {
+    console.log('you tube');
 		app.getYouTubeData();
 	},
 
@@ -25,7 +26,6 @@ var app = {
 				console.log("Got the data");
 				app.youTubeData = data.items;
 				app.makeHTML();
-				
 			}
 		});
 	},
@@ -33,13 +33,12 @@ var app = {
 	makeHTML: function() {
 		var theHTML = '';
 		for (var i = 0; i < app.youTubeData.length; i++){
-			theHTML += "<div class='.video-article-box'>";
+			theHTML += "<div class='video-article-box'>";
 			theHTML += "<h3>" + app.youTubeData[i].snippet.title + "</h3>";
 			theHTML += "<iframe src= "+ app.youTubeLink + app.youTubeData[i].id.videoId + "/>";
 			theHTML += "</div>";
 		}
-		
-		$('.video-news-container').html(theHTML)	;
+		$('.video-news-container').html(theHTML);
 	},
 };
 	//https://www.googleapis.com/youtube/v3/search?part=snippet&q' + searchTerm //+'&type=video&key="AIzaSyBgkq8aZGcL4lX67SY_ngQ7UTVTTJIxp7Q"
