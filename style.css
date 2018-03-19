@@ -1,0 +1,30 @@
+.video-news-container {
+	float: left;
+	width: 400px;
+	height: 300px;
+	text-align: center;
+}
+
+h1 {
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+img {
+	display: block;
+	height: 40%;
+	width: auto;
+	margin: 5px auto;
+}
+.article-news-container{
+	text-align: left
+}
+headline {
+	font-size: 18px;
+	font-style: oblique;
+};
+summary{
+	font-size: 16px;
+	font-style: normal;
+}
